@@ -1,15 +1,38 @@
 
 - Gas Analyzer
 	- Drager MSI FG7500
-		-T Some tutorials
-- NOx sensor
+		+T Some tutorials
+-*T Truck NOx Sensor
 	-*T Datasheet, Connector
+		- kw: EUROPART Mercedes-Benz 1347973321
+			- 1347973321
+				- https://www.europart.rs/default/nox-senzor-europart-mercedes-benz-1347973321.html
+					- Grey
+			- A1137332A
+				- ref num from AMPRO
+				- https://as-pl.com/en/p/NOX9041
+					- Reference number table
+						- Conti: 5WK97332A
+			- Repl. A0101531728
+				- ref num from MERCEDES
+				-O 24V
+				-O Euro 6
+			- SNS24V
+			- 10R-05 2723
+		- kw: nox sensor can id
+			https://forum.arduino.cc/t/measurement-of-nox-can-bus/352960/5
 		- kw: nox sensor mercedes can pinout
 			https://www.youtube.com/watch?app=desktop&v=PEbOQPTG9gE
 		- kw: nox sensor mercedes pinout
 			https://www.linkedin.com/pulse/nox-sensor-fault-codes-detection-methods-bestgrowthie
 			-O 2A, start 12A
 			-O 200-800°C
+		- kw: nox sensor connector type
+			- https://www.aliexpress.com/item/1005003982920574.html?spm=a2g0o.detail.pcDetailTopMoreOtherSeller.4.4ccefQ5mfQ5mdH&gps-id=pcDetailTopMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=c766047e-b0c7-441b-9a9d-101aa1be0061&_t=gps-id:pcDetailTopMoreOtherSeller,scm-url:1007.40050.354490.0,pvid:c766047e-b0c7-441b-9a9d-101aa1be0061,tpp_buckets:668%232846%238116%232002&isseo=y&pdp_npi=4%40dis%21EUR%211.81%211.63%21%21%211.90%211.71%21%402101ef6817141382158716856e69c8%2112000027637086888%21rec%21SRB%211825607743%21&utparam-url=scene%3ApcDetailTopMoreOtherSeller%7Cquery_from%3A
+				- TE Tyco 4 pin
+				- Gray
+					2-1418390-1
+						- But is not that
 		- On sensor:
 			- 1347973321
 			- www.europart.net
@@ -18,3 +41,32 @@
 			- https://forum.arduino.cc/t/controlling-automotive-nox-sensor-with-can-bus/540699
 			- https://forum.arduino.cc/t/arduino-uno-can-bus-nox-messung/352903/6
 			- https://forum.arduino.cc/t/measurement-of-nox-can-bus/352960
+				- Have datasheet:
+					- UniNOx12V
+					- A2C5xxxxx
+					- 5WK96622A
+				- Rcv from ID: 18F00F52
+					- A lot of 0xFF aka 255 in bytes
+						- No like that in datasheet
+				- https://forum.arduino.cc/t/measurement-of-nox-can-bus/352960/3
+					- Send cmd to ID: 18FEDF00
+						-O Just 1 bit.
+						- No more 0xFF in bytes
+						-O Get from multiple IDs
+						-T Decode messages using datasheet
+							-T Which bytes is in code, which in pkg, which in datasheet
+							-T Why diff ID is short?
+								-H Just last byte of ID?
+		- kw: NOx sensor CAN protocol
+			- https://github.com/Bylund/NOx-Shield-Example/blob/main/NOx_Shield_Example.ino
+				- EGS-NX2
+			- https://www.youtube.com/watch?v=bZyLPMJuuqk
+				- Xtruck Y006
+					- $250
+			- https://www.continental-aftermarket.com/us-en/products/special-vehicle-solutions/sensors-and-switches/uninox
+		- kw: CAN ID 0x18FEDF00
+			- https://blog.csdn.net/huan447882949/article/details/79944298
+			- 382615655-CAN-Botschaften-Step3.pdf
+				- B 8, b = 3 -> Exceeded the dew point
+					- T = 250ms
+					-O Very similar to msg sent at 18FEDF00 in https://forum.arduino.cc/t/measurement-of-nox-can-bus/352960/3
