@@ -24,7 +24,7 @@ mcp2515_can CAN(10); // Set CS pin
 
 void setup() {
     SERIAL_PORT_MONITOR.begin(115200);
-    while (CAN_OK != CAN.begin(CAN_125KBPS)) {             // init can bus : baudrate = 500k
+    while (CAN_OK != CAN.begin(CAN_250KBPS)) {             // init can bus : baudrate = 500k
         SERIAL_PORT_MONITOR.println("CAN init fail, retry...");
         delay(1000);
     }
@@ -51,6 +51,7 @@ void loop() {
         }
         SERIAL_PORT_MONITOR.println();
     }
+    
 }
 
 /*********************************************************************************************************
