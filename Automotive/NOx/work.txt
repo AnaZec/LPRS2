@@ -70,3 +70,32 @@
 				- B 8, b = 3 -> Exceeded the dew point
 					- T = 250ms
 					-O Very similar to msg sent at 18FEDF00 in https://forum.arduino.cc/t/measurement-of-nox-can-bus/352960/3
+				- J1939
+
+		- J1939
+			- https://www.csselectronics.com/pages/j1939-explained-simple-intro-tutorial
+				- 250K baud
+				- 29b ID
+				- Mostly broadcast
+				- CAN MSB b first
+				- PGN - Parameter Group Numbers
+					- 18b ID
+					- CAN ID:
+						- 3b priority - usualy 0b110 0x18
+						- 18b PGN
+						- 8b src addr
+				- SPN - Suspect Parameter Numbers
+					- signals
+					- In data
+						- 8B
+						- SPN1
+							- 1B
+							- 2st and 3rd nibbles (count start from 1)
+						- SPN2
+							- 4th and 5th B (count start from 1)
+							- Intel B order
+								- Lower B first
+				- Rx ID
+					- 0x18FEDFXX
+						- PGN = 65247 0xFEDF
+						- SPN = 3238 0xCA6
