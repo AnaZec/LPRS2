@@ -973,7 +973,7 @@
     (uuid 57f35ee8-42fd-45f6-828d-6090c7634069)
     (property "Reference" "T?" (id 0) (at 85.09 45.72 0))
     (property "Value" "230V 3.2VA - 2x 12V 1.6VA" (id 1) (at 85.09 48.26 0))
-    (property "Footprint" "" (id 2) (at 85.09 60.96 0)
+    (property "Footprint" "For_Rasterboard:Transformer-3VA_2xSec" (id 2) (at 85.09 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 85.09 60.96 0)
