@@ -99,3 +99,32 @@
 					- 0x18FEDFXX
 						- PGN = 65247 0xFEDF
 						- SPN = 3238 0xCA6
+
+		- Our system
+			- Pkg 1:
+				ID: 0x0CFF0052
+					- J1939?
+						- PGN = 0x0FF00
+						- SPN = 0x52
+				data:	FF	FF	FF	FF	FF	FF	FF	F3	
+				T: 1 sec
+			- Pkg 2:
+				- We send
+				ID: 0x18FEDF00
+					- J1939
+				data:	0	0	0	0	0	0	0	5	
+			- Pkg 3: 
+				ID: 0x18EBFF52
+					- J1939
+						- PGN = 0xEBFF
+						- SPN = 0x52
+				data:	2	6C	10	59	A0	C8	1	0
+				data:	3	F4	FF	FF	FF	FF	FF	FF	
+				data:	1	65	4	70	A	0	F7	3	
+				T: few sec
+				- Started when we send Pkg 2
+				- kw: J1939 0x18EBFF00
+					- https://github.com/rbei-etas/busmaster/issues/315
+						- BUSMASTER by Bosch 
+
+	
