@@ -239,7 +239,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Cirrus_Logic_Motor_Driver_Tester_Ard_Shield.kicad_pro",
+    "filename": "Box.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -318,8 +318,44 @@
   },
   "sheets": [
     [
-      "114a5b17-cf8e-4776-be73-d4b8efec9ba7",
+      "09c92b2a-ba10-45d0-ac91-8ea09cf68577",
       ""
+    ],
+    [
+      "00000000-0000-0000-0000-00006294b008",
+      "AFE"
+    ],
+    [
+      "7e974cae-0cca-453a-ab68-43db80964abd",
+      "PSU"
+    ],
+    [
+      "bc824406-dc1b-4869-9bde-ff9f390aa2ce",
+      "unnulling1"
+    ],
+    [
+      "00000000-0000-0000-0000-00006294b4bb",
+      "sensor0"
+    ],
+    [
+      "00000000-0000-0000-0000-00006294afed",
+      "amp0"
+    ],
+    [
+      "00000000-0000-0000-0000-0000629fc153",
+      "sensor1"
+    ],
+    [
+      "00000000-0000-0000-0000-00006294afed",
+      "amp0"
+    ],
+    [
+      "00000000-0000-0000-0000-0000629fc175",
+      "sensor2"
+    ],
+    [
+      "00000000-0000-0000-0000-00006294afed",
+      "amp0"
     ]
   ],
   "text_variables": {}
