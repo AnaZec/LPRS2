@@ -78,12 +78,29 @@
 				- 29b ID
 				- Mostly broadcast
 				- CAN MSB b first
+				
 				- PGN - Parameter Group Numbers
 					- 18b ID
 					- CAN ID:
-						- 3b priority - usualy 0b110 0x18
-						- 18b PGN
+						- 3b priority: 
+							- range - [0-7] H -> L, default 6 - 0b110. 0x18 000[1 10]00 ?
+											3 - 0b011. 0xC  000[0 11]00 ?
+	
+						- 18b PGN (Parameter Group Numbers): type of data and its destination
+							- 1b reserved
+							- 1b data page
+							- 8b PDU fomat
+							- 8b PDU specific
+							
+							
+							- ranges:
+								- 0x0000 - 0xEE00 : 239  p2p (PDU1) messages defined by SAE  [0 - 60,928]
+								- 0xEF00 :  1   p22 message for proprietary use [61,184]
+								- 0xF000 - 0xFEFF : 3840 broadcast (PDU2) messages defined by SAE [61,440 - 62,279]
+								- 0xFF00 - 0xFFFF : 256  broadcast messages for proprietary use  [62,280 - 65,535]
+								
 						- 8b src addr
+						
 				- SPN - Suspect Parameter Numbers
 					- signals
 					- In data
@@ -96,27 +113,30 @@
 							- Intel B order
 								- Lower B first
 				- Rx ID
-					- 0x18FEDFXX
-						- PGN = 65247 0xFEDF
-						- SPN = 3238 0xCA6
+					- 0x18FEDFXX - zasto bas ova komanda?
+						- PGN = 65247 0xFEDF - Electronic Engine Controller 3
+						- SPN = 3238 0xCA6 - Aftertreatment 1 Exhaust Dew Point, start position 8.3 [0,0,0,0,0,0,0,4]
+						
 
 		- Our system
 			- Pkg 1:
+				- We receive
 				ID: 0x0CFF0052
 					- J1939?
-						- PGN = 0x0FF00
-						- SPN = 0x52
+						- PGN = 0x0FF00 (broadcast message for proprietary use)
+						- source address = 0x52
 				data:	FF	FF	FF	FF	FF	FF	FF	F3	
 				T: 1 sec
 			- Pkg 2:
 				- We send
-				ID: 0x18FEDF00
+				ID: 0x18FEDF00   (try different source address?)
 					- J1939
 				data:	0	0	0	0	0	0	0	5	
 			- Pkg 3: 
+				- We receive
 				ID: 0x18EBFF52
 					- J1939
-						- PGN = 0xEBFF
+						- PGN = 0xEBFF (60415 - p2p message defined by SAE - unable to find - outdated J1939-71 pdf)
 						- SPN = 0x52
 				data:	2	6C	10	59	A0	C8	1	0
 				data:	3	F4	FF	FF	FF	FF	FF	FF	
@@ -127,4 +147,7 @@
 					- https://github.com/rbei-etas/busmaster/issues/315
 						- BUSMASTER by Bosch 
 
-	
+		- Links:
+			- PGN range : https://copperhilltech.com/blog/sae-j1939-parameter-group-number-pgn-range/
+			- PGN 60415 (0xEBFF) issue: https://www.enovationcontrols.com/pvforumarchive/viewtopic8d83.html?t=1461
+			
